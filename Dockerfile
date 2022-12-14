@@ -20,7 +20,7 @@ COPY src ./src
 RUN ./mvnw package -DskipTests
 
 # Expose port 8080
-EXPOSE 8080
+EXPOSE 8084
 
 # Run the Spring Boot application
-CMD ["java", "-jar", "target/my-app.jar"]
+ENTRYPOINT ["java", "-jar", "target/gomycode.jar"]
