@@ -30,5 +30,8 @@ build/
 .vscode/
 
 
-## Build Binary
-/target
+## Spring Boot and java
+target/
+.mvn/
+mvnw
+mvnw.cmd
