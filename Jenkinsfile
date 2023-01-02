@@ -20,10 +20,10 @@ pipeline{
         }
         stage('SonarQube analysis') {
             steps{
-                withSonarQubeEnv('sonarqube-9.5') {
+                withSonarQubeEnv('asq') {
                     sh "mvn sonar:sonar "
-                    }
                 }
+            }
         }
         stage('Build docker image') {
             steps {
