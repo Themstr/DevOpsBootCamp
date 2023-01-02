@@ -5,7 +5,7 @@ pipeline{
         dockerTool "D6"
     }
     environment{
-        imageName = "devopsBootcamp"
+        imageName = "devopsbootcamp"
     }
     stages {
         stage('Git') {
