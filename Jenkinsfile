@@ -1,10 +1,13 @@
-/* groovylint-disable-next-line CompileStatic */
-pipeline {
+pipeline{
     agent any
+    tools{
+        maven "M3"
+        dockerTool "D6"
+    }
     stages {
-        stage('Checkout') {
+        stage('Git') {
             steps {
-                checkout scm
+                git branch: 'main', url: 'https://github.com/Themstr/DevOpsBootCamp' 
             }
         }
         stage('Build App') {
@@ -15,7 +18,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 script {
-                    sh 'docker build -t gomycode .'
+                    sh 'docker build -t ${env.imageName} .'
                 }
             }
         }
