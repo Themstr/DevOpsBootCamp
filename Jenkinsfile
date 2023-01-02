@@ -18,6 +18,13 @@ pipeline{
                 sh 'mvn clean install -DskipTests'
             }
         }
+        stage('SonarQube analysis') {
+            steps{
+                withSonarQubeEnv('sonarqube-9.5') {
+                    sh "mvn sonar:sonar "
+                    }
+                }
+        }
         stage('Build docker image') {
             steps {
                 script {
@@ -25,5 +32,12 @@ pipeline{
                 }
             }
         }
+        stage ("Running Microservices"){
+            steps{
+                script{
+                    sh "docker-compose up -d"
+                }
+            }
+         }
     }
 }
