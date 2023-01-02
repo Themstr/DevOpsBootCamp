@@ -4,6 +4,9 @@ pipeline{
         maven "M3"
         dockerTool "D6"
     }
+    environment{
+        imageName = "devopsBootcamp"
+    }
     stages {
         stage('Git') {
             steps {
